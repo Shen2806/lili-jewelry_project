@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển Hình Ảnh</title>
+    <style>
+        /* CSS cho khung hình */
+        #image-frame {
+            width: 500px;
+            height: 300px;
+            border: 2px solid #ccc;
+            text-align: center;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* Để đặt các nút mũi tên */
+        }
+
+        #image-frame img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        /* Nút mũi tên */
+        .arrow-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .arrow-btn-left {
+            left: 10px;
+        }
+
+        .arrow-btn-right {
+            right: 10px;
+        }
+
+        /* CSS cho nút mũi tên khi hover */
+        .arrow-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="image-frame">
+        <img id="image" src="image1.jpg" alt="Hình ảnh đầu tiên">
+        <button class="arrow-btn arrow-btn-left" onclick="changeImage('left')">&#10094;</button> <!-- Nút mũi tên trái -->
+        <button class="arrow-btn arrow-btn-right" onclick="changeImage('right')">&#10095;</button> <!-- Nút mũi tên phải -->
+    </div>
+
+    <script>
+        // Danh sách các hình ảnh
+        const images = ["image1.jpg", "image2.jpg", "image3.jpg"];
+        let currentIndex = 0; // Chỉ số hình ảnh hiện tại
+
+        function changeImage(direction) {
+            if (direction === 'left') {
+                currentIndex = (currentIndex - 1 + images.length) % images.length; // Chuyển sang hình ảnh trước
+            } else if (direction === 'right') {
+                currentIndex = (currentIndex + 1) % images.length; // Chuyển sang hình ảnh sau
+            }
+            // Cập nhật hình ảnh mới vào thẻ img
+            document.getElementById("image").src = images[currentIndex];
+        }
+    </script>
+
+</body>
+</html>

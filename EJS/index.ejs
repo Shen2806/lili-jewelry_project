@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ Lili-Premium</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="https://kit.fontawesome.com/yourcode.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="search-login">
+                <div class="logo">
+                    <a href="#"><img src="../IMG/logo.jpg" class="img-logo" alt="Logo Lili-Premium"></a>
+                </div>
+                <div class="search">
+                    <input type="text" class="search-input" placeholder="Tìm kiếm">
+                </div>
+                <div class="login">
+                    <button class="button-login"><a href="#" class="a-login">Login</a></button>
+                </div>
+                <div class="carts">
+                    <button class="button-carts"><a href="#" class="a-carts">Giỏ Hàng</a></button>
+                </div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="./Bracelets-Shake-Your-Hands.ejs">VÒNG-LẮC</a></li>
+                    <li><a href="./Wrist-Rings.ejs">NHẪN</a></li>
+                    <li><a href="./Earrings.ejs">BÔNG TAI</a></li>
+                    <li><a href="./Piercing.ejs">XUYÊN XỎ</a></li>
+                    <li><a href="./Double-Jewelry.ejs">TRANG SỨC ĐÔI</a></li>
+                    <li><a href="./Jewelry-Sets.ejs">TRANG SỨC BỘ</a></li>
+                    <li><a href="./Feng-Shui.ejs">PHONG THỦY</a></li>
+                    <li><a href="./Gift.ejs">QUÀ TẶNG</a></li>
+                    <li><a href="./Accessory.ejs">PHỤ KIỆN</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <section class="section">
+            <div id="image-frame">
+                <div id="image-frame">
+                    <img src="../IMG/Banner-San-Pham-moi-nhat-PC.jpg" class="active" alt="Sản phẩm 1">
+                    <img src="../IMG/Banner-Top-san-pham-yeu-thich-PC.jpg" alt="Sản phẩm 2">
+                </div>
+                <button class="arrow-btn arrow-btn-left" onclick="changeImage('left')">&#10094;</button>
+                <button class="arrow-btn arrow-btn-right" onclick="changeImage('right')">&#10095;</button>
+            </div>
+            <div class="box-event">
+                <div class="box-uudai-thanhvien">
+                    <a href="#">
+                        <i class="fas fa-cannabis" id="uudai-tv"></i>
+                        <h3>Ưu đãi thành viên</h3>
+                        <p>Thành viên sẽ nhận được hộp trang sức trị giá 24 triệu và xu tích lũy </p>
+                    </a>
+                </div>
+                <div class="box-danhgia">
+                    <a href="#">
+                        <i class="fas fa-star" id="danhgia"></i>
+                        <h3>Đánh giá từ Google</h3>
+                        <p>5/5 sao đánh giá của khách hàng đã mua hàng của Lili trên Google  </p>
+                    </a>
+                </div>
+                <div class="box-quatang">
+                    <a href="#">
+                        <i class="fas fa-gift" id="gift"></i>
+                        <h3>Quà tặng miễn phí</h3>
+                        <p>Bạn sẽ nhận được nhiều quà tặng hấp dẫn miễn phí cho đơn hàng bất kì </p>
+                    </a>
+                </div>
+                <div class="box-uudai-affiliate">
+                    <a href="#">
+                        <i class="fab fa-draft2digital" id="affiliate"></i>
+                        <h3>Ưu đãi Affiliate</h3>
+                        <p>Tham gia để nhận hoa hồng lên đến 17,5% trị giá đơn hàng và nhiều ưu đãi </p>
+                    </a>
+                </div>
+            </div>
+            <div class="box-xuhuong">
+                <h2 class="xuhuong">----------------------------  XU HƯỚNG TÌM KIẾM  ----------------------------</h2>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll("#image-frame img");
+
+        function changeImage(direction) {
+            images[currentIndex].classList.remove("active");
+
+            if (direction === 'left') {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+            } else {
+                currentIndex = (currentIndex + 1) % images.length;
+            }
+
+            images[currentIndex].classList.add("active");
+        }
+
+        // Tự động chuyển ảnh sau mỗi 5 giây
+        setInterval(() => {
+            changeImage('right');
+        }, 5000);
+    </script>
+</body>
+</html>
+
