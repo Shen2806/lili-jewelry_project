@@ -1,0 +1,148 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease-in-out; /* Tạo hiệu ứng chuyển động toàn cục */
+}
+
+/* Căn giữa màn hình */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f4f4f4, #dcdcdc);
+    opacity: 0;
+    animation: fadeIn 1s forwards; /* Hiệu ứng fade-in khi trang được tải */
+}
+
+/* Hiệu ứng fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Hộp đăng nhập */
+.login-box {
+    width: 350px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transform: scale(0.9); /* Ban đầu nhỏ hơn một chút */
+    animation: scaleUp 0.5s ease-out forwards; /* Hiệu ứng phóng to hộp login */
+}
+
+/* Hiệu ứng phóng to hộp đăng nhập */
+@keyframes scaleUp {
+    from {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    animation: slideIn 0.5s ease-out; /* Hiệu ứng slide cho tiêu đề */
+}
+
+/* Hiệu ứng slide tiêu đề */
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Nhóm input */
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out 0.5s forwards; /* Hiệu ứng fade-in cho input */
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease, transform 0.3s ease; /* Thêm hiệu ứng khi focus */
+}
+
+.input-group input:focus {
+    border-color: #007bff;
+    transform: scale(1.05); /* Phóng to khi focus */
+}
+
+/* Nút đăng nhập */
+.btn-login {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease; /* Thêm hiệu ứng hover */
+}
+
+.btn-login:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Phóng to nút khi hover */
+}
+
+/* Liên kết phụ */
+.extra-links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.extra-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.extra-links a:hover {
+    color: #0056b3;
+}
+
+/* Hiệu ứng fade-in cho các phần tử input */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

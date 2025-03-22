@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý sản phẩm</title>
+    <link rel="stylesheet" href="../public/CSS/product.css">
+    <script src="../libs/tinymce_7.7.2/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '.editor',
+            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+            toolbar_mode: 'floating',
+        });
+    </script>
+</head>
+<body>
+    <h1>Quản lý sản phẩm</h1>
+    <select id="category">
+        <option value="vong-lac">Vòng - Lắc</option>
+        <option value="nhan">Nhẫn</option>
+        <option value="bong-tai">Bông Tai</option>
+        <option value="khuyen-xo">Khuyên Xỏ</option>
+        <option value="trang-suc-doi">Trang Sức Đôi</option>
+        <option value="trang-suc-bo">Trang Sức Bộ</option>
+    </select>
+    
+    <button class="btn" onclick="showAddProductForm()">Thêm sản phẩm</button>
+    
+    <div id="addProductForm">
+        <h2>Thêm sản phẩm</h2>
+        <form action="/product/add" method="POST" enctype="multipart/form-data">
+            <label>Tên sản phẩm:</label>
+            <input type="text" name="name" required>
+            
+            <label>Hình ảnh:</label>
+            <input type="file" name="image" required>
+            
+            <label>Thông tin sản phẩm:</label>
+            <textarea class="editor" name="description"></textarea>
+            
+            <button class="btn" type="submit">Lưu</button>
+        </form>
+    </div>
+    
+    <h2>Danh sách sản phẩm</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Tên</th>
+                <th>Hình ảnh</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(product => { %>
+                <tr>
+                    <td><%= product.name %></td>
+                    <td><img src="/uploads/<%= product.image %>" width="100"></td>
+                    <td>
+                        <a class="btn" href="/product/edit/<%= product._id %>">Sửa</a>
+                        <a class="btn" href="/product/delete/<%= product._id %>" onclick="return confirm('Xóa sản phẩm này?');">Xóa</a>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <script>
+        function showAddProductForm() {
+            document.getElementById('addProductForm').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
